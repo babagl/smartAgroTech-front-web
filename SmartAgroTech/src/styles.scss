@@ -1,1 +1,186 @@
-/* You can add global styles to this file, and also import other style files */
+/* -----------------------------------
+   🌿 SMARTAGROTECH GLOBAL THEME
+   ----------------------------------- */
+
+/* --- PrimeNG + Tailwind integration --- */
+@use "tailwindcss";
+@import 'primeicons/primeicons.css';
+
+/* --- Global Reset --- */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* -----------------------------------
+   🎨 THEME VARIABLES
+   ----------------------------------- */
+:root {
+  /* 🌞 LIGHT MODE COLORS */
+  --color-primary: #2b8a3e; /* Vert agricole pro */
+  --color-primary-light: #a4e57c;
+  --color-secondary: #007b83; /* Bleu tech */
+  --color-accent: #ffb703; /* Soleil agricole */
+  --color-danger: #dc3545;
+
+  --color-bg: #f9fafb;
+  --color-surface: #ffffff;
+  --color-border: #e5e7eb;
+  --color-text: #1f2937;
+  --color-muted: #6b7280;
+
+  --color-hover: #eef2ff;
+  --color-active: #dbeafe;
+
+  /* Ombres douces */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+}
+
+/* -----------------------------------
+   🌙 DARK MODE
+   ----------------------------------- */
+.app-dark {
+  --color-primary: #65d46e;
+  --color-secondary: #00a3ad;
+  --color-accent: #f2c94c;
+  --color-danger: #ef4444;
+
+  --color-bg: #0f1114;
+  --color-surface: #1a1d21;
+  --color-border: #2d2f33;
+  --color-text: #e5e7eb;
+  --color-muted: #9ca3af;
+
+  --color-hover: #1f2937;
+  --color-active: #2d3748;
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
+
+  .p-toolbar,
+  .p-card,
+  .p-sidebar {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border-color: var(--color-border);
+  }
+
+  .p-button {
+    background-color: var(--color-primary);
+    border: none;
+    color: #fff;
+
+    &:hover {
+      background-color: #4ade80;
+    }
+  }
+
+  a {
+    color: var(--color-primary);
+  }
+}
+
+/* -----------------------------------
+   🧱 COMMON UI STYLES
+   ----------------------------------- */
+
+/* Cards */
+.p-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+/* Buttons */
+.p-button {
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  transition: all 0.2s ease;
+
+  &.p-button-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff;
+
+    &:hover {
+      background-color: color-mix(in srgb, var(--color-primary) 90%, black);
+
+    }
+  }
+
+  &.p-button-secondary {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: #fff;
+  }
+}
+
+/* Toolbars */
+.p-toolbar {
+  border: none;
+  border-radius: 0;
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  padding: 0.8rem 1.5rem;
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+}
+
+/* Scrollbar personnalisé */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* -----------------------------------
+   🌾 UTILITY CLASSES
+   ----------------------------------- */
+.text-muted {
+  color: var(--color-muted);
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+}

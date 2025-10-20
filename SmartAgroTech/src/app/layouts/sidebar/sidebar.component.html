@@ -1,0 +1,32 @@
+<div class="sidebar" [class.collapsed]="collapsed">
+  <!-- HEADER -->
+  <div class="sidebar-header">
+    <div class="brand" *ngIf="!collapsed">
+      <i class="pi pi-leaf"></i>
+      <span>SmartAgroTech</span>
+    </div>
+    <button class="toggle-btn" (click)="toggleSidebar()">
+      <i class="pi" [ngClass]="collapsed ? 'pi-angle-right' : 'pi-angle-left'"></i>
+    </button>
+  </div>
+
+  <!-- MENU -->
+  <nav class="menu">
+    <ul>
+      <li *ngFor="let item of menuItems">
+        <a routerLink="{{ item.route }}" routerLinkActive="active">
+          <i class="{{ item.icon }}"></i>
+          <span *ngIf="!collapsed">{{ item.label }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- FOOTER -->
+  <div class="sidebar-footer">
+    <button class="logout-btn" (click)="logout()">
+      <i class="pi pi-sign-out"></i>
+      <span *ngIf="!collapsed">Déconnexion</span>
+    </button>
+  </div>
+</div>
