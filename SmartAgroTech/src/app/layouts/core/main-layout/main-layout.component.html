@@ -1,0 +1,32 @@
+<div class="layout" [ngClass]="{ 'app-dark': darkMode }">
+  <!-- Sidebar -->
+  <app-sidebar></app-sidebar>
+
+  <!-- Contenu principal -->
+  <main class="content">
+    <!-- Header global -->
+
+    <!-- Barre de titre locale (optionnelle) -->
+    <p-toolbar styleClass="shadow-2 toolbar">
+      <div class="p-toolbar-group-left flex items-center gap-2">
+        <button
+          pButton
+          icon="{{ darkMode ? 'pi pi-sun' : 'pi pi-moon' }}"
+          class="p-button-rounded p-button-text"
+          (click)="toggleDarkMode()"
+        ></button>
+        <h2 class="page-title">Tableau de bord</h2>
+      </div>
+
+      <div class="p-toolbar-group-right flex items-center gap-3">
+        <p-avatar image="assets/images/avatar.png" shape="circle" styleClass="shadow-1"></p-avatar>
+        <span class="font-semibold text-primary">Yaya Sall</span>
+      </div>
+    </p-toolbar>
+
+    <!-- Conteneur de page -->
+    <section class="page-container">
+      <router-outlet></router-outlet>
+    </section>
+  </main>
+</div>
