@@ -1,0 +1,188 @@
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  .map {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* 🎛️ Bouton principal */
+.basemap-container {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 20;
+
+  .toggle-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    background: var(--p-primary-color, #0ea5e9);
+    color: white;
+    font-size: 1.4rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #0284c7;
+      transform: rotate(15deg) scale(1.05);
+    }
+  }
+
+  .basemap-list {
+    margin-top: 0.6rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 0.6rem;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    animation: fadeSlide 0.3s ease;
+    transition: background 0.4s ease, color 0.4s ease;
+
+    .basemap-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 10px;
+      padding: 0.35rem 0.5rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+
+      img {
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+        object-fit: cover;
+        border: 1px solid #ddd;
+      }
+
+      span {
+        font-size: 0.88rem;
+        color: #334155;
+        font-weight: 500;
+      }
+
+      &:hover {
+        background: rgba(14, 165, 233, 0.15);
+        transform: translateX(3px);
+      }
+
+      &.active {
+        background: var(--p-primary-color, #0ea5e9);
+        span {
+          color: #fff;
+        }
+        img {
+          border-color: white;
+        }
+      }
+    }
+  }
+}
+
+/* 🌙 Mode sombre */
+body.app-dark .basemap-container {
+  .toggle-btn {
+    background: #14b8a6;
+    color: #e2e8f0;
+    box-shadow: 0 4px 10px rgba(20, 184, 166, 0.4);
+
+    &:hover {
+      background: #0f766e;
+      transform: rotate(15deg) scale(1.05);
+    }
+  }
+
+  .basemap-list {
+    background: rgba(15, 23, 42, 0.92);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    animation: fadeSlideDark 0.4s ease;
+
+    .basemap-item {
+      span {
+        color: #cbd5e1;
+      }
+
+      &:hover {
+        background: rgba(20, 184, 166, 0.15);
+      }
+
+      &.active {
+        background: #14b8a6;
+
+        span {
+          color: white;
+        }
+
+        img {
+          border-color: #a7f3d0;
+        }
+      }
+    }
+  }
+}
+
+/* ✨ Animations */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideDark {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.import-btn {
+  position: absolute;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  z-index: 30;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  background: var(--p-primary-color, #0ea5e9);
+  color: #fff;
+  transition: all 0.25s ease;
+  font-weight: 500;
+  padding: 0.8rem 1.2rem;
+
+  &:hover {
+    transform: scale(1.05);
+    background: #0284c7;
+  }
+}
+
+/* 🌙 Dark mode */
+body.app-dark .import-btn {
+  background: #14b8a6;
+  color: #e2e8f0;
+  box-shadow: 0 4px 10px rgba(20, 184, 166, 0.4);
+
+  &:hover {
+    background: #0f766e;
+    transform: scale(1.05);
+  }
+}

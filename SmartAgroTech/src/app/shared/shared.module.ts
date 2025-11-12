@@ -5,7 +5,7 @@ import { PrimeNgModule } from "./prime-ng.module";
 
 @NgModule({
   exports:[
-     CommonModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     PrimeNgModule

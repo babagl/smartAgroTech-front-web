@@ -1,0 +1,37 @@
+<div class="map-container">
+  <div id="map" class="map"></div>
+
+  <!-- 🌍 Sélecteur de fond de plan -->
+  <div class="basemap-container" [class.open]="menuOpen">
+    <button class="toggle-btn" (click)="toggleBasemapMenu()">
+      <i class="pi pi-map"></i>
+    </button>
+
+    <div class="basemap-list" *ngIf="menuOpen">
+      <div
+        class="basemap-item"
+        *ngFor="let base of baseMaps"
+        [class.active]="base.key === activeLayerKey"
+        (click)="changeBaseLayer(base.key)"
+      >
+        <img [src]="base.thumbnail" [alt]="base.label" />
+        <span>{{ base.label }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🧭 Bouton flottant d’import -->
+  <button
+    class="import-btn"
+    pButton
+    icon="pi pi-upload"
+    label="Importer"
+    (click)="openImportModal()"
+  ></button>
+
+  <!-- Modale d’import -->
+  <app-import
+    #importModal
+    (featuresImported)="onFeaturesImported($event)"
+  ></app-import>
+</div>

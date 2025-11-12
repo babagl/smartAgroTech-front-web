@@ -1,0 +1,37 @@
+<p-dialog
+  header="📂 Importer un fichier de champs"
+  [(visible)]="visble"
+  [modal]="true"
+  [style]="{ width: '450px' }"
+  [draggable]="false"
+  [closable]="true"
+  (onHide)="close()"
+>
+  <div class="dialog-content">
+    <p class="desc">
+      Sélectionnez un fichier <b>.geojson</b> ou <b>.json</b> à importer.
+    </p>
+
+    <input
+      type="file"
+      accept=".geojson,.json"
+      (change)="onFileSelected($event)"
+      [disabled]="loading"
+    />
+
+    <div *ngIf="importedCount > 0" class="import-summary">
+      ✅ {{ importedCount }} entités importées
+    </div>
+
+    <p-toast position="bottom-right"></p-toast>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <p-button
+      label="Fermer"
+      icon="pi pi-times"
+      styleClass="p-button-text"
+      (click)="close()"
+    ></p-button>
+  </ng-template>
+</p-dialog>

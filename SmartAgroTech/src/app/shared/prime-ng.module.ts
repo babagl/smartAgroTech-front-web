@@ -11,7 +11,6 @@ import { RippleModule } from 'primeng/ripple';
 import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
 import { TooltipModule } from 'primeng/tooltip';
-
 @NgModule({
    exports: [
     ButtonModule,
@@ -25,7 +24,7 @@ import { TooltipModule } from 'primeng/tooltip';
     ProgressSpinnerModule,
     MenuModule,
     RippleModule,
-    AvatarModule
+    AvatarModule,
 
   ]
 })
